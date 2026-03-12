@@ -53,3 +53,13 @@ Launch multiple subagents concurrently when appropriate:
 ## GitLab Duo
 
 GitLab MCP is enabled. Use it for issues, MRs, and CI context when delegating work.
+
+## Cursor Cloud specific instructions
+
+This repository is a **documentation-only workspace** containing Cursor agent definitions (`.cursor/agents/`), workspace rules (`.cursor/rules/*.mdc`), and setup/architecture documentation (`docs/cursor/`). There is no application source code, no `package.json`, no `requirements.txt`, and no runnable services.
+
+- **No dependencies to install.** The update script is a no-op (`true`).
+- **No lint, test, or build commands exist.** There are no source files to lint or test.
+- **No services to start.** The planned stack (Next.js 14, NestJS, Prisma, Tailwind) has not been scaffolded yet.
+- **Intended tech stack** (from user rules): Next.js 14 App Router (frontend), NestJS (backend), Prisma (ORM), Tailwind CSS (styling). When code is added, update this section and the update script accordingly.
+- **File inventory:** All tracked files are `.md`, `.mdc`, or `.json`. See `cursor_setup_inventory.json` for the full plugin/MCP/extension audit.
