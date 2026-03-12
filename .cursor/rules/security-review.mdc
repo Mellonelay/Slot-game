@@ -1,0 +1,16 @@
+---
+description: Security review for auth, payment, API code
+globs: ["**/auth/**", "**/payment/**", "**/stripe/**", "**/api/**", "**/*.middleware.ts"]
+alwaysApply: false
+---
+
+# Security Review Required
+
+For code touching auth, payments, API keys, or user data:
+
+1. **No hardcoded secrets:** Use env vars or secret managers.
+2. **Validate inputs:** Sanitize and validate all user input.
+3. **Least privilege:** Use minimal permissions for DB, APIs.
+4. **Run Snyk:** Use the Snyk plugin to scan for vulnerabilities.
+
+Hand off to Security Reviewer agent for explicit review before merge.

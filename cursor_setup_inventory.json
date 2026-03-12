@@ -1,0 +1,155 @@
+{
+  "audit_date": "2026-03-12",
+  "environment": {
+    "os_host": "Windows",
+    "wsl_distro": "kali-linux",
+    "workspace_root": "c:\\Users\\mello\\OneDrive\\Documents\\Slot",
+    "wsl_path": "/home/kali"
+  },
+  "plugins": [
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "version": "0.1.0",
+      "has_mcp": false,
+      "has_skills": true,
+      "has_rules": true
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "version": "1.0.0",
+      "has_mcp": true,
+      "mcp_servers": ["cloudflare-docs", "cloudflare-bindings", "cloudflare-builds", "cloudflare-observability"],
+      "has_skills": true,
+      "has_rules": true
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "has_mcp": true,
+      "mcp_auth": "oauth"
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "version": "1.0.0",
+      "has_mcp": true,
+      "mcp_auth": "oauth"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "version": "1.2.0",
+      "has_mcp": true,
+      "has_skills": true
+    },
+    {
+      "id": "redis-development",
+      "name": "Redis",
+      "version": "1.0.0",
+      "has_mcp": false,
+      "has_skills": false,
+      "has_rules": true
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "version": "0.5.0",
+      "has_mcp": true,
+      "requires_config": "DD_MCP_DOMAIN"
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "version": "0.1.0",
+      "has_mcp": true,
+      "has_skills": true,
+      "has_rules": true
+    },
+    {
+      "id": "cursor-team-kit",
+      "name": "Cursor Team Kit",
+      "has_mcp": false,
+      "has_rules": true
+    },
+    {
+      "id": "huggingface-skills",
+      "name": "Hugging Face Skills",
+      "has_mcp": true,
+      "has_skills": true
+    },
+    {
+      "id": "functions",
+      "name": "Browserbase Functions",
+      "version": "1.0.0",
+      "has_mcp": false
+    }
+  ],
+  "mcp_servers": {
+    "global": [
+      {
+        "name": "filesystem",
+        "command": "mcp-server-filesystem",
+        "args": ["C:\\Users\\mello\\OneDrive\\Documents\\Mytel bypass", "C:\\Users\\mello\\OneDrive\\Documents\\Desktop\\npvtfiles"]
+      },
+      {
+        "name": "Bright Data",
+        "command": "npx",
+        "args": ["-y", "@brightdata/mcp"],
+        "env_required": ["API_TOKEN"]
+      }
+    ],
+    "plugin_provided": [
+      "plugin-cloudflare-cloudflare-docs",
+      "plugin-cloudflare-cloudflare-bindings",
+      "plugin-cloudflare-cloudflare-builds",
+      "plugin-cloudflare-cloudflare-observability",
+      "plugin-figma-figma",
+      "plugin-linear-linear"
+    ],
+    "builtin": ["cursor-ide-browser"]
+  },
+  "rules": {
+    "plugin_rules": ["firecrawl/install", "cloudflare/workers", "redis/*", "gitlab/gitlab-workflow", "cursor-team-kit/*"],
+    "workspace_rules": [],
+    "user_rules": []
+  },
+  "skills": {
+    "plugin_skills": ["firecrawl", "cloudflare/*", "datadog-mcp-setup", "figma/*", "gitlab-ci-author", "huggingface/*"],
+    "user_skills": ["C:\\Users\\mello\\.cursor\\skills-cursor\\*"]
+  },
+  "hooks": {
+    "cursor_hooks": [],
+    "git_hooks": "not_audited"
+  },
+  "extensions": [
+    "anysphere.cursorpyright",
+    "anysphere.remote-wsl",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.npm-intellisense",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "google.geminicodeassist",
+    "googlecloudtools.cloudcode",
+    "ms-azuretools.vscode-containers",
+    "ms-azuretools.vscode-docker",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-vscode.hexeditor",
+    "ms-vscode.powershell",
+    "prisma.prisma",
+    "rangav.vscode-thunder-client",
+    "redhat.vscode-yaml",
+    "shd101wyy.markdown-preview-enhanced",
+    "usernamehw.errorlens"
+  ],
+  "missing": {
+    "plugins": ["Postgres/Neon", "Snyk/Semgrep", "Grafana", "PostHog"],
+    "mcp_servers": ["github", "postgres", "redis", "slack", "http", "datadog_configured"],
+    "rules": ["architecture", "tests", "security", "observability"],
+    "skills": ["implement-service", "add-tests", "run-security-review", "reverse-engineer-flow", "generate-monitoring-config"],
+    "hooks": ["on_save", "on_commit", "on_pr"]
+  }
+}

@@ -1,0 +1,15 @@
+---
+description: Require architecture/spec before implementation
+globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.py"]
+alwaysApply: false
+---
+
+# Architecture Before Implementation
+
+Before implementing any new service, feature, or major change:
+
+1. **Define the contract:** API endpoints, request/response shapes, data models.
+2. **Document decisions:** Use ADRs (Architecture Decision Records) for non-trivial choices.
+3. **Get alignment:** Ensure Backend and Frontend agree on interfaces before coding.
+
+If no spec exists, create one first or ask the Architect agent to produce it.

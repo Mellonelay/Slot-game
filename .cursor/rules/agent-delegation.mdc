@@ -1,0 +1,22 @@
+---
+description: Reference agent definitions when delegating to subagents
+globs: []
+alwaysApply: true
+---
+
+# Agent Delegation
+
+Custom subagents live in `.cursor/agents/`. Delegate via `/name` (e.g. `/architect`, `/backend-engineer`) or let Agent route automatically.
+
+| Subagent | Use when |
+|----------|----------|
+| architect | System design, API contracts, tech decisions |
+| backend-engineer | APIs, DB, services |
+| frontend-engineer | UI, components, styling |
+| test-engineer | Unit, integration, E2E tests |
+| security-reviewer | Auth, payments, vulnerability checks |
+| reverse-engineering | Flow extraction, scraping, API discovery |
+| monitoring | Dashboards, alerts, observability |
+| verifier | Validate completed work, confirm implementations work |
+
+Use each agent's responsibilities and handoff rules when routing work. See `AGENTS.md` for orchestration flow.

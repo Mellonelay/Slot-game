@@ -1,0 +1,15 @@
+---
+description: Tests required for backend changes
+globs: ["**/api/**", "**/services/**", "**/lib/**", "**/*.controller.ts", "**/*.service.ts"]
+alwaysApply: false
+---
+
+# Backend Tests Required
+
+For any backend change (API, service, lib):
+
+1. **Unit tests:** Cover new/modified functions with edge cases.
+2. **Integration tests:** Cover API endpoints with real DB (or mocks).
+3. **Run tests:** Execute `npm test` or equivalent before considering done.
+
+Hand off to Test Engineer agent if test coverage is insufficient.

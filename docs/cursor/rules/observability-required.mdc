@@ -1,0 +1,16 @@
+---
+description: Observability updates for new services
+globs: ["**/api/**", "**/services/**", "**/workers/**"]
+alwaysApply: false
+---
+
+# Observability for New Services
+
+When adding a new service or endpoint:
+
+1. **Logging:** Add structured logs for errors and key flows.
+2. **Metrics:** Expose metrics (latency, request count, errors).
+3. **Alerts:** Configure alerts for error rate, latency spikes.
+4. **Dashboard:** Create or update Datadog/Cloudflare dashboard.
+
+Hand off to Monitoring Agent for dashboard and alert setup.
