@@ -10,13 +10,14 @@ Custom subagents live in `.cursor/agents/`. Delegate via `/name` (e.g. `/archite
 
 | Subagent | Use when |
 |----------|----------|
-| architect | System design, API contracts, tech decisions |
+| pipeline-orchestrator | Full reverse-to-code pipeline (browser → blueprint → code → tests) |
+| reverse-engineering | Browser automation, network capture, endpoint extraction |
+| architect | System design, API contracts, microservice blueprint |
 | backend-engineer | APIs, DB, services |
 | frontend-engineer | UI, components, styling |
 | test-engineer | Unit, integration, E2E tests |
 | security-reviewer | Auth, payments, vulnerability checks |
-| reverse-engineering | Flow extraction, scraping, API discovery |
 | monitoring | Dashboards, alerts, observability |
 | verifier | Validate completed work, confirm implementations work |
 
-Use each agent's responsibilities and handoff rules when routing work. See `AGENTS.md` for orchestration flow.
+Use each agent's responsibilities and handoff rules when routing work. See `AGENTS.md` for orchestration flow and `docs/cursor/pipeline-reverse-to-code.md` for the pipeline.
