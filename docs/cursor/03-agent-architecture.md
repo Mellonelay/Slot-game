@@ -45,4 +45,4 @@ Built-in subagents (mcp_task):
 - `subagent_type: "shell"` — Command execution, git, npm
 - `subagent_type: "generalPurpose"` — Research, multi-step tasks
 
-Custom subagents: architect, backend-engineer, frontend-engineer, test-engineer, security-reviewer, reverse-engineering, monitoring, verifier. See `AGENTS.md` for orchestration flow.
+Custom subagents: pipeline-orchestrator, reverse-engineering, architect, backend-engineer, frontend-engineer, test-engineer, security-reviewer, monitoring, verifier. See `AGENTS.md` for orchestration flow. Full reverse-to-code pipeline: `docs/cursor/pipeline-reverse-to-code.md`.

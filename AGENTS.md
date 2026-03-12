@@ -6,14 +6,33 @@ This project uses Cursor's subagent system. Custom agents live in `.cursor/agent
 
 | Subagent | Invoke with | When to use |
 |----------|-------------|-------------|
-| architect | `/architect` | System design, API contracts, tech decisions |
-| backend-engineer | `/backend-engineer` | APIs, DB, services, business logic |
+| pipeline-orchestrator | `/pipeline-orchestrator` | Full reverse-to-code pipeline (browser → blueprint → code → tests) |
+| reverse-engineering | `/reverse-engineering` | Browser automation, network capture, endpoint extraction |
+| architect | `/architect` | System design, API contracts, microservice blueprint |
+| backend-engineer | `/backend-engineer` | APIs, DB, services, code skeleton |
 | frontend-engineer | `/frontend-engineer` | UI, components, styling |
 | test-engineer | `/test-engineer` | Tests, coverage, E2E, fix failures |
 | security-reviewer | `/security-reviewer` | Auth, payments, vulnerability review |
-| reverse-engineering | `/reverse-engineering` | Flow extraction, scraping, API discovery |
 | monitoring | `/monitoring` | Dashboards, alerts, observability |
 | verifier | `/verifier` | Validate completed work, run tests, confirm implementations |
+
+## Reverse-to-Code Pipeline
+
+End-to-end flow from browser to production-ready service:
+
+```
+Browser Automation MCP → Network/API Capture → Endpoint Extraction
+      ↓
+Microservice Blueprint (architect)
+      ↓
+Code Skeleton (backend-engineer)
+      ↓
+Automated Tests (test-engineer)
+```
+
+**Run full pipeline:** `/pipeline-orchestrator` or "Run the reverse pipeline for [URL]"
+
+See `docs/cursor/pipeline-reverse-to-code.md` for details.
 
 ## Orchestration Flow
 
