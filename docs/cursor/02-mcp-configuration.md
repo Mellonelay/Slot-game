@@ -9,15 +9,17 @@
 
 | Server | Type | Auth | Notes |
 |--------|------|------|-------|
-| filesystem | stdio | - | Includes Slot, Mytel bypass, npvtfiles |
+| filesystem | stdio | - | **FIXED:** Uses `npx @modelcontextprotocol/server-filesystem` with forward slashes |
 | Bright Data | stdio | API_TOKEN | Scraping, browser |
-| GitHub | stdio | GITHUB_TOKEN | Add to global mcp.json |
+| GitHub | stdio | GITHUB_TOKEN | **TODO:** Add to global mcp.json (see below) |
 | cursor-ide-browser | Built-in | - | Browser automation |
 | Cloudflare (4) | Plugin | OAuth | docs, bindings, builds, observability |
 | Figma | Plugin | - | HTTP |
 | Linear | Plugin | OAuth | HTTP |
 | Slack | Plugin | OAuth | HTTP |
-| Datadog | Plugin | DD_MCP_DOMAIN | Configure in plugin |
+| Datadog | Plugin | DD_MCP_DOMAIN | **TODO:** Configure DD_MCP_DOMAIN in plugin |
+
+**See `mcp-server-fixes.md` for detailed fix instructions.**
 
 ## GitHub MCP (Add Manually)
 
@@ -34,6 +36,8 @@ Add to `C:\Users\mello\.cursor\mcp.json` under `mcpServers`:
 ```
 
 Create a PAT at https://github.com/settings/tokens with `repo`, `read:org` scopes.
+
+**Note:** The `@modelcontextprotocol/server-github` package is deprecated but still functional. For future use, consider GitHub's official remote MCP or `github/github-mcp-server`.
 
 ## Postgres (Use Neon Plugin)
 
