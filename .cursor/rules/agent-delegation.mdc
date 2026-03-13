@@ -1,9 +1,6 @@
 ---
-description: Reference agent definitions when delegating to subagents
-globs: []
 alwaysApply: true
 ---
-
 # Agent Delegation
 
 Custom subagents live in `.cursor/agents/`. Delegate via `/name` (e.g. `/architect`, `/backend-engineer`) or let Agent route automatically.
