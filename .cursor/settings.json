@@ -1,0 +1,25 @@
+{
+  "plugins": {
+    "cursor-team-kit": {
+      "enabled": true
+    },
+    "linear": {
+      "enabled": true
+    },
+    "neon-postgres": {
+      "enabled": true
+    },
+    "datadog": {
+      "enabled": true
+    },
+    "redis-development": {
+      "enabled": true
+    },
+    "figma": {
+      "enabled": true
+    },
+    "firecrawl": {
+      "enabled": true
+    }
+  }
+}

@@ -9,31 +9,22 @@
 
 | Server | Type | Auth | Notes |
 |--------|------|------|-------|
-| filesystem | stdio | - | Includes Slot, Mytel bypass, npvtfiles |
+| filesystem | stdio | - | Uses `npx @modelcontextprotocol/server-filesystem` with forward slashes |
 | Bright Data | stdio | API_TOKEN | Scraping, browser |
-| GitHub | stdio | GITHUB_TOKEN | Add to global mcp.json |
+| GitHub | stdio | GITHUB_PERSONAL_ACCESS_TOKEN | Configured in global mcp.json |
+| fetch | stdio | - | @tokenizin/mcp-npx-fetch |
 | cursor-ide-browser | Built-in | - | Browser automation |
 | Cloudflare (4) | Plugin | OAuth | docs, bindings, builds, observability |
 | Figma | Plugin | - | HTTP |
 | Linear | Plugin | OAuth | HTTP |
 | Slack | Plugin | OAuth | HTTP |
-| Datadog | Plugin | DD_MCP_DOMAIN | Configure in plugin |
+| Datadog | Plugin | domain | Set region in plugin mcp.json (see below) |
 
-## GitHub MCP (Add Manually)
+**See `mcp-server-fixes.md` for detailed fix instructions.**
 
-Add to `C:\Users\mello\.cursor\mcp.json` under `mcpServers`:
+## GitHub MCP
 
-```json
-"github": {
-  "command": "npx",
-  "args": ["-y", "@modelcontextprotocol/server-github"],
-  "env": {
-    "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_GITHUB_PAT>"
-  }
-}
-```
-
-Create a PAT at https://github.com/settings/tokens with `repo`, `read:org` scopes.
+Already configured in `C:\Users\mello\.cursor\mcp.json` with `GITHUB_PERSONAL_ACCESS_TOKEN`. To add or change: create a PAT at https://github.com/settings/tokens with `repo`, `read:org` scopes. The `@modelcontextprotocol/server-github` package is deprecated but still functional.
 
 ## Postgres (Use Neon Plugin)
 
@@ -58,6 +49,8 @@ Or use a different Redis MCP package; verify compatibility.
 
 ## Datadog Configuration
 
-Edit: `C:\Users\mello\.cursor\plugins\cache\cursor-public\datadog\fdce3e1db7c99b80939f2ad95c67f525bf0eee50\mcp.json`
+Edit the plugin MCP config and set your region so the plugin uses the correct Datadog site:
 
-Replace `${DD_MCP_DOMAIN}` with your region: `us1`, `us3`, `us5`, `eu1`, `ap1`, or `ap2`.
+- **Path:** `C:\Users\mello\.cursor\plugins\cache\cursor-public\datadog\fdce3e1db7c99b80939f2ad95c67f525bf0eee50\mcp.json`
+- **Add or set** `domain` to one of: `us1`, `us3`, `us5`, `eu1`, `ap1`, `ap2`
+- Then reload Cursor: `Ctrl+Shift+P` → "Developer: Reload Window"

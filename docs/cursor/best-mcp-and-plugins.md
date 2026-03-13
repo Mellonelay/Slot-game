@@ -8,24 +8,48 @@ Use this as your install list. You already have several; **install** or **enable
 
 ### You already have (keep these)
 - **filesystem** — multi-root file access
-- **Bright Data** — scraping, browser, ecommerce
 - **github** — repos, PRs, issues
 - **fetch** — HTTP fetch (JSON/HTML)
 - **cursor-ide-browser** — built-in browser automation (critical for reverse-engineering)
+
+### Bright Data replacement (recommended: Firecrawl)
+
+Bright Data is no longer used (no balance). **Best alternative:**
+
+| Option | Best for | Cost | MCP / Setup |
+|--------|-----------|------|-------------|
+| **Firecrawl** | Scraping, crawl, search, LLM-ready output; full-page/site. | **Free tier** (no card); then from ~$16/mo. | Add to `mcp.json` (see below) or install **Firecrawl** plugin. |
+| **ScraperAPI** | General scraping, JS rendering, proxy rotation, CAPTCHA. | From $49/mo; has trial credits. | No official MCP; use via `fetch` or custom script. |
+| **Zyte** | Enterprise, tough sites, high success rate. | Paid. | API via fetch or custom. |
+| **cursor-ide-browser + fetch** | No extra cost: browse + capture HTTP. | Free. | Already available; good for HAR and manual flows. |
+
+**Firecrawl MCP config** — add to `C:\Users\mello\.cursor\mcp.json` under `mcpServers`:
+
+```json
+"firecrawl": {
+  "command": "npx",
+  "args": ["-y", "firecrawl-mcp"],
+  "env": {
+    "FIRECRAWL_API_KEY": "your_api_key_here"
+  }
+}
+```
+
+Get a free API key: https://www.firecrawl.dev/app/api-keys (no credit card). You can also install the **Firecrawl** plugin from Cursor Marketplace for one-click setup.
 
 ### Add these for a professional setup
 
 | MCP Server | Why | How to install |
 |------------|-----|----------------|
+| **Firecrawl** | **Primary scraping/crawl replacement for Bright Data.** Web scrape, docs, research, full-page/site. | Add to `mcp.json` (snippet above) or install Firecrawl plugin. |
 | **GitLab** | Issues, MRs, CI — you use GitLab (melloenfrwrk-group). | Cursor: install **GitLab** plugin from Marketplace, then connect in MCP settings. |
-| **Firecrawl** | Web scrape, docs, research; better than generic fetch for full-page/site. | Add to `mcp.json` or install Firecrawl plugin if available. |
 | **Postgres (Neon)** | DB queries from the editor. | Cursor: install **Neon Postgres** plugin, connect via OAuth. |
 | **Brave Search** or **Exa** | Real-time search for APIs/docs (optional). | Add to `mcp.json` with `npx -y @modelcontextprotocol/server-brave-search` (or Exa) + API key. |
 | **Shell** | Run terminal commands from AI (optional). | `npx -y @modelcontextprotocol/server-shell` in `mcp.json` (use with care; scope to safe dirs). |
 
 ### Optional for reverse-engineering / HAR
 - **Chrome DevTools MCP** — if you need deeper DevTools than cursor-ide-browser (screenshots, DOM, network).
-- **Puppeteer/Playwright MCP** — if you need scripted browser flows; often covered by Bright Data + cursor-ide-browser.
+- **Puppeteer/Playwright MCP** — if you need scripted browser flows; often covered by Firecrawl + cursor-ide-browser.
 
 ---
 
@@ -57,7 +81,7 @@ If you want the smallest set that still feels professional:
 For **reverse-engineering (A80444)** specifically:
 
 - **cursor-ide-browser** — navigate, snapshot, interact.
-- **Bright Data** — scraping/browser when needed.
+- **Firecrawl** — scrape, crawl, search (replaces Bright Data).
 - **fetch** — capture or replay HTTP.
 - **Filesystem** — save HAR/raw/normalized/screenshots under `reverse_engineering/`.
 - **GitLab** — link evidence to issues/MRs.
