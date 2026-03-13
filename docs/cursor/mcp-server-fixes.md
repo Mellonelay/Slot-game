@@ -76,7 +76,11 @@ Add to `C:\Users\mello\.cursor\mcp.json` under `mcpServers`:
 Edit the Datadog plugin MCP config:
 `C:\Users\mello\.cursor\plugins\cache\cursor-public\datadog\fdce3e1db7c99b80939f2ad95c67f525bf0eee50\mcp.json`
 
+<<<<<<< HEAD
 Add a `domain` property (or set `DD_MCP_DOMAIN` if the plugin uses env) to your Datadog region:
+=======
+Replace `${DD_MCP_DOMAIN}` with your Datadog region:
+>>>>>>> 6510508afdd4ecabf2df1b088f9bee20fc9cbf03
 - `us1` (US1 - US East)
 - `us3` (US3 - US West)
 - `us5` (US5 - US Central)

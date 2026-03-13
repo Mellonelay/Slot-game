@@ -9,22 +9,36 @@
 
 | Server | Type | Auth | Notes |
 |--------|------|------|-------|
+<<<<<<< HEAD
 | filesystem | stdio | - | Uses `npx @modelcontextprotocol/server-filesystem` with forward slashes |
 | Bright Data | stdio | API_TOKEN | Scraping, browser |
 | GitHub | stdio | GITHUB_PERSONAL_ACCESS_TOKEN | Configured in global mcp.json |
 | fetch | stdio | - | @tokenizin/mcp-npx-fetch |
+=======
+| filesystem | stdio | - | **FIXED:** Uses `npx @modelcontextprotocol/server-filesystem` with forward slashes |
+| Bright Data | stdio | API_TOKEN | Scraping, browser |
+| GitHub | stdio | GITHUB_TOKEN | **TODO:** Add to global mcp.json (see below) |
+>>>>>>> 6510508afdd4ecabf2df1b088f9bee20fc9cbf03
 | cursor-ide-browser | Built-in | - | Browser automation |
 | Cloudflare (4) | Plugin | OAuth | docs, bindings, builds, observability |
 | Figma | Plugin | - | HTTP |
 | Linear | Plugin | OAuth | HTTP |
 | Slack | Plugin | OAuth | HTTP |
+<<<<<<< HEAD
 | Datadog | Plugin | domain | Set region in plugin mcp.json (see below) |
+=======
+| Datadog | Plugin | DD_MCP_DOMAIN | **TODO:** Configure DD_MCP_DOMAIN in plugin |
+
+**See `mcp-server-fixes.md` for detailed fix instructions.**
+>>>>>>> 6510508afdd4ecabf2df1b088f9bee20fc9cbf03
 
 **See `mcp-server-fixes.md` for detailed fix instructions.**
 
 ## GitHub MCP
 
 Already configured in `C:\Users\mello\.cursor\mcp.json` with `GITHUB_PERSONAL_ACCESS_TOKEN`. To add or change: create a PAT at https://github.com/settings/tokens with `repo`, `read:org` scopes. The `@modelcontextprotocol/server-github` package is deprecated but still functional.
+
+**Note:** The `@modelcontextprotocol/server-github` package is deprecated but still functional. For future use, consider GitHub's official remote MCP or `github/github-mcp-server`.
 
 ## Postgres (Use Neon Plugin)
 
